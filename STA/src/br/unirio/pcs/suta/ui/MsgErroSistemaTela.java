@@ -43,6 +43,11 @@ public class MsgErroSistemaTela extends javax.swing.JFrame {
         });
 
         MsgErroSistemaVoltar.setText("Voltar para tela principal");
+        MsgErroSistemaVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MsgErroSistemaVoltarActionPerformed(evt);
+            }
+        });
 
         MsgErroSistemaTexto.setColumns(20);
         MsgErroSistemaTexto.setRows(5);
@@ -87,7 +92,17 @@ public class MsgErroSistemaTela extends javax.swing.JFrame {
 
     private void MsgErroSistemaEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MsgErroSistemaEnviarActionPerformed
         // TODO add your handling code here:
+        PrincipalTela enviar = new PrincipalTela();
+        this.dispose();
+        enviar.setVisible(true);
     }//GEN-LAST:event_MsgErroSistemaEnviarActionPerformed
+
+    private void MsgErroSistemaVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MsgErroSistemaVoltarActionPerformed
+        // TODO add your handling code here:
+        PrincipalTela voltar = new PrincipalTela();
+        this.dispose();
+        voltar.setVisible(true);
+    }//GEN-LAST:event_MsgErroSistemaVoltarActionPerformed
 
     /**
      * @param args the command line arguments

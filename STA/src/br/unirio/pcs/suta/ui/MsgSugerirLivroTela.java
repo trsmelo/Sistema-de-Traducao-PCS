@@ -43,6 +43,11 @@ public class MsgSugerirLivroTela extends javax.swing.JFrame {
         });
 
         MsgSugerirLivroVoltar.setText("Voltar para tela principal");
+        MsgSugerirLivroVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MsgSugerirLivroVoltarActionPerformed(evt);
+            }
+        });
 
         MsgSugerirLivroTexto.setColumns(20);
         MsgSugerirLivroTexto.setRows(5);
@@ -87,7 +92,17 @@ public class MsgSugerirLivroTela extends javax.swing.JFrame {
 
     private void MsgSugerirLivroEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MsgSugerirLivroEnviarActionPerformed
         // TODO add your handling code here:
+        PrincipalTela enviar = new PrincipalTela();
+        this.dispose();
+        enviar.setVisible(true);
     }//GEN-LAST:event_MsgSugerirLivroEnviarActionPerformed
+
+    private void MsgSugerirLivroVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MsgSugerirLivroVoltarActionPerformed
+        // TODO add your handling code here:
+        PrincipalTela voltar = new PrincipalTela();
+        this.dispose();
+        voltar.setVisible(true);
+    }//GEN-LAST:event_MsgSugerirLivroVoltarActionPerformed
 
     /**
      * @param args the command line arguments

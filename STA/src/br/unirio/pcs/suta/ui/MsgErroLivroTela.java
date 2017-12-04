@@ -43,6 +43,11 @@ public class MsgErroLivroTela extends javax.swing.JFrame {
         });
 
         msgErroLivroVoltar.setText("Voltar para tela principal");
+        msgErroLivroVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                msgErroLivroVoltarActionPerformed(evt);
+            }
+        });
 
         msgErroLivroTexto.setColumns(20);
         msgErroLivroTexto.setRows(5);
@@ -87,7 +92,17 @@ public class MsgErroLivroTela extends javax.swing.JFrame {
 
     private void msgErroLivroEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msgErroLivroEnviarActionPerformed
         // TODO add your handling code here:
+        PrincipalTela enviar = new PrincipalTela();
+        this.dispose();
+        enviar.setVisible(true);
     }//GEN-LAST:event_msgErroLivroEnviarActionPerformed
+
+    private void msgErroLivroVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msgErroLivroVoltarActionPerformed
+        // TODO add your handling code here:
+        PrincipalTela voltar = new PrincipalTela();
+        this.dispose();
+        voltar.setVisible(true);
+    }//GEN-LAST:event_msgErroLivroVoltarActionPerformed
 
     /**
      * @param args the command line arguments
