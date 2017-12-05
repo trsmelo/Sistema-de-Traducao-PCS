@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clientes>
+  <cliente>
+    <nome>tiago</nome>
+    <sobrenome>melo</sobrenome>
+    <cpf>123</cpf>
+    <telefone>45678</telefone>
+    <username>tmelo</username>
+    <senha>123</senha>
+  </cliente>
+  <cliente>
+    <nome>Lucas</nome>
+    <sobrenome>Azevedo</sobrenome>
+    <cpf>456</cpf>
+    <telefone>10201</telefone>
+    <username>lg</username>
+    <senha>890</senha>
+  </cliente>
+</clientes>
