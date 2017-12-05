@@ -18,140 +18,143 @@ import java.util.logging.Logger;
 
 public class Cliente extends Pessoa {
 
-	private String nomeUsuario;
-	private String senhaUsuario;
+    private String nomeUsuario;
+    private String senhaUsuario;
 
-	public String getNomeUsuario() {
-		return nomeUsuario;
-	}
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
 
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
-	}
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
 
-	public String getSenhaUsuario() {
-		return senhaUsuario;
-	}
+    public String getSenhaUsuario() {
+        return senhaUsuario;
+    }
 
-	public void setSenhaUsuario(String senhaUsuario) {
-		this.senhaUsuario = senhaUsuario;
-	}
+    public void setSenhaUsuario(String senhaUsuario) {
+        this.senhaUsuario = senhaUsuario;
+    }
 
-	public Cliente() {
+    public Cliente() {
 
-	}
+    }
 
-	public Cliente(String nome, String sobreNome, String cpf, String telefone, String nomeUsuario,
-			String senhaUsuario) {
-		super(nome, sobreNome, cpf, telefone);
-		this.nomeUsuario = nomeUsuario;
-		this.senhaUsuario = senhaUsuario;
-	}
-	/**
-	 * Protï¿½tipo do mï¿½todo de cadastro de cliente.
-	 * 
-	 * Realizar uma reengenharia desse mï¿½todo, de forma que nï¿½o seja necessï¿½rio passar um cliente como argumento.
-	 * 
-	 * @param cliente Cliente criado com os dados.
-	 */
-	public void realizarCadastro() {
-                //Cliente cliente = new Cliente();
-		XStream xstream = new XStream();
+    public Cliente(String nome, String sobreNome, String cpf, String telefone, String nomeUsuario,
+            String senhaUsuario) {
+        super(nome, sobreNome, cpf, telefone);
+        this.nomeUsuario = nomeUsuario;
+        this.senhaUsuario = senhaUsuario;
+    }
 
-		try {
+    public void criaXml() {
 
-			SAXBuilder builder = new SAXBuilder();
-			//File xmlFile = new File("C:\\Users\\Tiago\\workspace\\clienteXML.xml");
-			File xmlFile = new File("C:\\Users\\Tiago\\workspace\\STA\\src\\clienteXML.xml");
-			  
-			Document doc = (Document) builder.build(xmlFile);
-			Element rootNode = doc.getRootElement();
+        Element clientes = new Element("clientes");
+        Document doc = new Document(clientes);
+        XMLOutputter xmlOutput = new XMLOutputter();
 
-			// Raï¿½z do xml
-			Element staff = rootNode;
+        System.out.println("Arquivo Criado com Sucesso");
 
-			// Adiciona novo elemento nome
-			Element name = new Element("nome").setText(this.nome);
-			staff.addContent(name);
-
-			// Adiciona novo sobreNome element
-			Element sobreNome = new Element("sobreNome").setText(this.sobreNome);
-			staff.addContent(sobreNome);
-
-			// Adiciona novo cpf element
-			Element cpf = new Element("cpf").setText(this.cpf);
-			staff.addContent(cpf);
-
-			// Adiciona novo telefone element
-			Element telefone = new Element("telefone").setText(this.telefone);
-			staff.addContent(telefone);
-
-			// Adiciona novo nomeUsuario element
-			Element nomeUsuario = new Element("nomeUsuario").setText(this.nomeUsuario);
-			staff.addContent(nomeUsuario);
-
-			// Adiciona novo senhaUsuario element
-			Element senhaUsuario = new Element("senhaUsuario").setText(this.senhaUsuario);
-			staff.addContent(senhaUsuario);
-
-			// update salary value
-			// staff.getChild("salary").setText("7000");
-
-			// remove firstname element
-			// staff.removeChild("firstname");
-
-			XMLOutputter xmlOutput = new XMLOutputter();
-
-			// display nice nice
-			xmlOutput.setFormat(Format.getPrettyFormat());
-			xmlOutput.output(doc, new FileWriter("C:\\Users\\Tiago\\workspace\\clienteXML.xml"));
-
-			// xmlOutput.output(doc, System.out);
-
-			System.out.println("Cliente adicionado com sucesso");
-
-		} catch (IOException io) {
-			io.printStackTrace();
-		} catch (JDOMException e) {
-			e.printStackTrace();
-		}
-
-	}
-        /**
-         * 
-         * 
-         */
-        public boolean realizarLogin(String username, String senha){
+        try {
+            xmlOutput.output(doc, new FileWriter("clienteXml.xml"));
             
-            XStream xstream = new XStream();
-            
-           try {
+        } catch (IOException ex) {
+            Logger.getLogger(Obra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void realizarCadastro() {
+        
+        File xmlCliente = new File("clienteXml.xml");
+
+        if (xmlCliente.exists()) {
+
+            SAXBuilder builder = new SAXBuilder();
+            XMLOutputter xmlOutput = new XMLOutputter();
+
+            try {
+                Document doc = (Document) builder.build(xmlCliente);
+                Element rootNode = doc.getRootElement();//Pega a raiz do xml
+                Element subRootNode = new Element("cliente");//Adiciona um filho ao xml
+                rootNode.addContent(subRootNode);
+
+                Element clientes = subRootNode;
+
+                // Adiciona novo elemento nome da cliente
+                Element nome = new Element("nome").setText(this.nome);
+                clientes.addContent(nome);
+                //Adiciona novo elemento sobrenome do cliente
+                Element sobrenome = new Element("sobrenome").setText(this.sobreNome);
+                clientes.addContent(sobrenome);
+                //Adiciona novo elemento cpf do cliente
+                Element cpf = new Element("cpf").setText(this.cpf);
+                clientes.addContent(cpf);
+                //Adiciona novo telefone do cliente
+                Element telefone = new Element("telefone").setText(this.telefone);
+                clientes.addContent(telefone);
+                //Adiciona novo elemento Username do cliente
+                Element user = new Element("username").setText(this.nomeUsuario);
+                clientes.addContent(user);
+                //Adiciona novo elemento Senha do cliente
+                Element senha = new Element("senha").setText(this.senhaUsuario);
+                clientes.addContent(senha);
+
+                xmlOutput.setFormat(Format.getPrettyFormat());
+                xmlOutput.output(doc, new FileWriter("clienteXml.xml"));
+
+                System.out.println("Cliente adicionado com sucesso");
+
+            } catch (JDOMException ex) {
+                Logger.getLogger(Obra.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Obra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+            criaXml();
+        }
+    }
+
+    /**
+     *
+     *
+     */
+    public boolean realizarLogin(String username, String senha) {
+
+        XStream xstream = new XStream();
+
+        try {
             SAXBuilder builder = new SAXBuilder();
             File xmlFile = new File("C:\\Users\\Tiago\\workspace\\clienteXML.xml");
-            
-            
+
             Document doc = (Document) builder.build(xmlFile);
             Element rootNode = doc.getRootElement();
-            
+
             // Raiz do xml
             Element staff = rootNode;
-            
-           // Element loginname = new Element("nomeUsuario");
-            
+
+            // Element loginname = new Element("nomeUsuario");
             //Element senhaClient = new Element("senhaUsuario");
-            
-            if(username.equals(staff.getAttribute(username)) && senha.equals(staff.getAttribute(senha))){
-                
-                   System.out.println(staff.getAttribute(username));
-                
+            if (username.equals(staff.getAttribute(username)) && senha.equals(staff.getAttribute(senha))) {
+
+                System.out.println(staff.getAttribute(username));
+
                 return true;
             }
-            
-            } catch (JDOMException ex) {
-                ex.printStackTrace();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-           return false;
+
+        } catch (JDOMException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
+        return false;
+    }
+//        public static void main(String[] args){
+//           
+//            Cliente cliente = new Cliente("tiago","melo","123","45678","tmelo","123");
+//            Cliente cliente2 = new Cliente("Lucas","Azevedo","456","10201","lg","890");
+//            cliente2.realizarCadastro();
+//            //cliente.realizarCadastro();
+//    }
 }
