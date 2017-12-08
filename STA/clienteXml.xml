@@ -16,4 +16,12 @@
     <username>lg</username>
     <senha>890</senha>
   </cliente>
+  <cliente>
+    <nome>Nome</nome>
+    <sobrenome>Sobrenome</sobrenome>
+    <cpf>CPF</cpf>
+    <telefone>Telefone</telefone>
+    <username>Nome de Usuário</username>
+    <senha>Senha</senha>
+  </cliente>
 </clientes>

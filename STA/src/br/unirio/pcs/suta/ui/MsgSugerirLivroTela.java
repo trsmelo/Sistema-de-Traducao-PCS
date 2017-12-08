@@ -5,15 +5,14 @@
  */
 package br.unirio.pcs.suta.ui;
 
+import br.unirio.pcs.suta.GmailAPI;
+
 /**
  *
  * @author Lucas
  */
 public class MsgSugerirLivroTela extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MsgErroLivroTela2
-     */
     public MsgSugerirLivroTela() {
         initComponents();
     }
@@ -92,6 +91,8 @@ public class MsgSugerirLivroTela extends javax.swing.JFrame {
 
     private void MsgSugerirLivroEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MsgSugerirLivroEnviarActionPerformed
         // TODO add your handling code here:
+        GmailAPI mail = new GmailAPI();
+        mail.sendMail(MsgSugerirLivroTexto.getText(), "sutapcsobra@gmail.com", "Sugestão de Obra");
         PrincipalTela enviar = new PrincipalTela();
         this.dispose();
         enviar.setVisible(true);
