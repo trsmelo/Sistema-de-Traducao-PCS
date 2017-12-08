@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<obras>
+  <obra id="tiago">
+    <nome>tiago</nome>
+    <autor>melo</autor>
+    <nota>10</nota>
+    <preco>abc</preco>
+    <editora>zmshsa</editora>
+    <sinopse>iassa</sinopse>
+  </obra>
+  <obra id="Lucas">
+    <nome>Lucas</nome>
+    <autor>Azevedo</autor>
+    <nota>10</nota>
+    <preco>abcde</preco>
+    <editora>fghij</editora>
+    <sinopse>lmnop</sinopse>
+  </obra>
+</obras>
