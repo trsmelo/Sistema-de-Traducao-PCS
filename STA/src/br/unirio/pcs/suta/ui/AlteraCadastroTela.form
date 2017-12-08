@@ -23,37 +23,36 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="317" max="32767" attributes="0"/>
+              <Component id="editarCadastroDescrTitulo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="89" pref="89" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="editarCadastroFieldDescrLogin" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="editarCadastroFieldDescrCPF" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="editarCadastroFieldDescrNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="editarCadastroFieldDescrEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="editarCadastroFieldCPF" alignment="0" pref="197" max="32767" attributes="0"/>
-                      <Component id="editarCadastroFieldEmail" alignment="0" max="32767" attributes="0"/>
-                      <Component id="editarCadastroFieldLogin" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="editarCadastroFieldDescrEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="editarCadastroFieldEmail" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
+                          <Component id="alterarCadastroEmailButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="editarCadastroFieldDescrSenha" min="-2" max="-2" attributes="0"/>
+                          <Component id="editarCadastroFieldDescrConfirmSenha" min="-2" max="-2" attributes="0"/>
+                          <Component id="editarCadastroFieldSenha" pref="197" max="32767" attributes="0"/>
+                          <Component id="editarCadastroFieldSenhaConfirm" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="editarCadastroFieldNome" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
-                  <Component id="editarCadastroVoltar" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="editarCadastroFieldDescrSenha" min="-2" max="-2" attributes="0"/>
-                      <Component id="editarCadastroFieldDescrConfirmSenha" min="-2" max="-2" attributes="0"/>
-                      <Component id="editarCadastroFieldSenha" pref="197" max="32767" attributes="0"/>
-                      <Component id="editarCadastroFieldSenhaConfirm" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="editarCadastroVoltar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="alterarCadastroSenhaButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="editarCadastroAlterar" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="338" max="32767" attributes="0"/>
-              <Component id="editarCadastroDescrTitulo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,40 +61,37 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="editarCadastroDescrTitulo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="editarCadastroFieldDescrLogin" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="editarCadastroFieldDescrSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="editarCadastroFieldDescrEmail" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="editarCadastroFieldLogin" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="editarCadastroFieldSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="editarCadastroFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="editarCadastroFieldDescrCPF" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="editarCadastroFieldDescrConfirmSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="alterarCadastroEmailButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="editarCadastroFieldDescrConfirmSenha" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="editarCadastroFieldSenhaConfirm" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="editarCadastroFieldCPF" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="editarCadastroFieldSenhaConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="alterarCadastroSenhaButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="0" pref="77" max="32767" attributes="0"/>
+                      <Component id="editarCadastroVoltar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-              <Component id="editarCadastroFieldDescrNome" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="editarCadastroFieldNome" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="editarCadastroFieldDescrEmail" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="editarCadastroFieldEmail" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="72" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="editarCadastroVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="editarCadastroAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -109,41 +105,20 @@
         <Property name="text" type="java.lang.String" value="Editar Cadastro"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="editarCadastroFieldLogin">
-    </Component>
-    <Component class="javax.swing.JTextField" name="editarCadastroFieldCPF">
-    </Component>
-    <Component class="javax.swing.JTextField" name="editarCadastroFieldNome">
-    </Component>
     <Component class="javax.swing.JTextField" name="editarCadastroFieldEmail">
     </Component>
     <Component class="javax.swing.JTextField" name="editarCadastroFieldSenha">
     </Component>
     <Component class="javax.swing.JTextField" name="editarCadastroFieldSenhaConfirm">
     </Component>
-    <Component class="javax.swing.JLabel" name="editarCadastroFieldDescrLogin">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Apelido(Login)"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="editarCadastroFieldDescrSenha">
       <Properties>
         <Property name="text" type="java.lang.String" value="Senha"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="editarCadastroFieldDescrCPF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="CPF"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="editarCadastroFieldDescrConfirmSenha">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirme a senha"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="editarCadastroFieldDescrNome">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nome Completo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="editarCadastroFieldDescrEmail">
@@ -159,12 +134,22 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoEditarCadastroVoltarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="editarCadastroAlterar">
+    <Component class="javax.swing.JButton" name="alterarCadastroSenhaButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fazer Altera&#xe7;&#xf5;es"/>
+        <Property name="text" type="java.lang.String" value="Atualizar senha"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoEditarCadastroAlterarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alterarCadastroSenhaButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="alterarCadastroEmailButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Atualizar Email"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alterarCadastroEmailButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

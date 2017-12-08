@@ -1,11 +1,13 @@
 package br.unirio.pcs.suta.ui;
+
 import br.unirio.pcs.suta.*;
+
 /**
  *
  * @author Tiago
  */
 public class LoginUITela extends javax.swing.JFrame {
-    
+
     public LoginUITela() {
         initComponents();
     }
@@ -27,6 +29,7 @@ public class LoginUITela extends javax.swing.JFrame {
         entradaNomeUserCadastro = new javax.swing.JTextField();
         entradaSenhaCadastro = new javax.swing.JTextField();
         botaoCadastrar = new javax.swing.JButton();
+        emailEntradaCadastro = new javax.swing.JTextField();
         Login = new javax.swing.JPanel();
         loginLabel = new javax.swing.JLabel();
         entradaNomeUserCliente = new javax.swing.JTextField();
@@ -59,37 +62,34 @@ public class LoginUITela extends javax.swing.JFrame {
             }
         });
 
+        emailEntradaCadastro.setText("email");
+
         javax.swing.GroupLayout CadastroLayout = new javax.swing.GroupLayout(Cadastro);
         Cadastro.setLayout(CadastroLayout);
         CadastroLayout.setHorizontalGroup(
             CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CadastroLayout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(botaoCadastrar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CadastroLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(entradaNomeUserCadastro))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CadastroLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(CadastroLayout.createSequentialGroup()
-                                .addComponent(entradaNomeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                                .addComponent(entradaSobrenomeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(entradaTelefoneCadastro)
-                            .addComponent(entradaSenhaCadastro)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CadastroLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(botaoCadastrar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CadastroLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(entradaCpfCadastro)))
+                    .addComponent(emailEntradaCadastro, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(entradaNomeUserCadastro, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CadastroLayout.createSequentialGroup()
+                        .addComponent(entradaNomeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(entradaSobrenomeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(entradaTelefoneCadastro)
+                    .addComponent(entradaSenhaCadastro)
+                    .addComponent(entradaCpfCadastro, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(31, 31, 31))
         );
         CadastroLayout.setVerticalGroup(
             CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CadastroLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entradaSobrenomeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(entradaNomeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -101,9 +101,10 @@ public class LoginUITela extends javax.swing.JFrame {
                 .addComponent(entradaSenhaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(entradaTelefoneCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoCadastrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(emailEntradaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(botaoCadastrar))
         );
 
         botaoCadastrar.getAccessibleContext().setAccessibleDescription("Botão para submeter os dados de cadastro");
@@ -185,43 +186,53 @@ public class LoginUITela extends javax.swing.JFrame {
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(Cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(118, 118, 118)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
+                .addGap(38, 38, 38))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
-       new Cliente(entradaNomeCadastro.getText(),entradaSobrenomeCadastro.getText(),entradaCpfCadastro.getText(),entradaTelefoneCadastro.getText(),entradaNomeUserCadastro
-               .getText(),entradaSenhaCadastro.getText()).realizarCadastro();
+        PrincipalTela loga = new PrincipalTela();
+        new Cliente(entradaNomeCadastro.getText(), entradaSobrenomeCadastro.getText(), entradaCpfCadastro.getText(), entradaTelefoneCadastro.getText(), entradaNomeUserCadastro
+                .getText(), entradaSenhaCadastro.getText(),emailEntradaCadastro.getText()).realizarCadastro();
+        this.dispose();
+        loga.setVisible(true);
+        
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void botaoEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEntrarLoginActionPerformed
-        //Cliente cliente = new Cliente();
-        //if (cliente.realizarLogin(entradaNomeUserCliente.getText(),entradaSenhaCliente.getText()) == true){
-            
-            PrincipalTela loga = new PrincipalTela();
+        Cliente cliente = new Cliente();
+        PrincipalTela loga = new PrincipalTela();
+
+        boolean logar = cliente.realizarLogin(entradaNomeUserCliente.getText(), entradaSenhaCliente.getText());
+
+        if (logar == true) {
+
             this.dispose();
             loga.setVisible(true);
-            
-        //}
+
+        } else {
+            this.dispose();
+            //FalhaLoginDialog.setVisible(true);
+        }
     }//GEN-LAST:event_botaoEntrarLoginActionPerformed
 
     private void sairMenuLogin(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairMenuLogin
-           
+
         this.dispose();
-        
+
     }//GEN-LAST:event_sairMenuLogin
 
     public static void main(String args[]) {
@@ -265,6 +276,7 @@ public class LoginUITela extends javax.swing.JFrame {
     private javax.swing.JButton botaoCadastrar;
     private javax.swing.JButton botaoEntrarLogin;
     private javax.swing.JButton botaoSair;
+    private javax.swing.JTextField emailEntradaCadastro;
     private javax.swing.JTextField entradaCpfCadastro;
     private javax.swing.JTextField entradaNomeCadastro;
     private javax.swing.JTextField entradaNomeUserCadastro;

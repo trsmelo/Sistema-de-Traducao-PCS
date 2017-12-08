@@ -13,48 +13,62 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 import com.thoughtworks.xstream.XStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import lombok.*;
+import org.w3c.dom.NodeList;
 
 /**
  *
- * @author OI392639
+ * @author Tiago Melo
  */
 @Data
 public class Obra {
 
-    private String id;
     private String nome;
     private String autor;
     private String nota;
+    private String preco;
+    private String editora;
     private String sinopse;
 
-    public Obra(String id, String nome, String autor, String nota, String sinopse) {
-        this.id = id;
+    public Obra(String nome, String autor, String nota, String preco, String editora, String sinopse) {
+
         this.nome = nome;
         this.autor = autor;
         this.nota = nota;
+        this.preco = preco;
+        this.editora = editora;
         this.sinopse = sinopse;
+
     }
+
+    public Obra() {
+
+    }
+
     //método que cria o Xml Caso ele não exista
     public void criaXml() {
-        
+
         Element obras = new Element("obras");
         Document doc = new Document(obras);
         XMLOutputter xmlOutput = new XMLOutputter();
-        
+
         System.out.println("Arquivo Criado com Sucesso");
-        
+
         try {
             xmlOutput.output(doc, new FileWriter("obraXml.xml"));
         } catch (IOException ex) {
             Logger.getLogger(Obra.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     //método que cadastra obras no Xml
     /**
-     * Método que vai inserir uma obra no XML e checar se ele existe, criando 
+     * Método que vai inserir uma obra no XML e checar se ele existe, criando
      * caso não exista.
      */
     public void registraObra() {
@@ -62,14 +76,16 @@ public class Obra {
         File xmlObra = new File("obraXml.xml");
 
         if (xmlObra.exists()) {
-            
+
             SAXBuilder builder = new SAXBuilder();
             XMLOutputter xmlOutput = new XMLOutputter();
+            int count = 1;
+            String countString = String.valueOf(count);
 
             try {
                 Document doc = (Document) builder.build(xmlObra);
                 Element rootNode = doc.getRootElement();
-                Element subRootNode = new Element("obra");
+                Element subRootNode = new Element("obra").setAttribute("id", this.nome);
                 rootNode.addContent(subRootNode);
 
                 Element obras = subRootNode;
@@ -83,11 +99,21 @@ public class Obra {
                 //Adiciona novo elemento nota que vai levar a obra
                 Element nota = new Element("nota").setText(this.nota);
                 obras.addContent(nota);
+                //Adiciona novo elemento preco
+                Element preco = new Element("preco").setText(this.preco);
+                obras.addContent(preco);
+                //Adiciona a sinopse da editora
+                Element editora = new Element("editora").addContent(this.editora);
+                obras.addContent(editora);
+                //Adiciona a sinopse da obra
+                Element sinopse = new Element("sinopse").addContent(this.sinopse);
+                obras.addContent(sinopse);
 
                 xmlOutput.setFormat(Format.getPrettyFormat());
                 xmlOutput.output(doc, new FileWriter("obraXml.xml"));
 
                 System.out.println("Obra adicionada com sucesso");
+                count++;
 
             } catch (JDOMException ex) {
                 Logger.getLogger(Obra.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,12 +125,103 @@ public class Obra {
             criaXml();
         }
     }
-//    public static void main(String[] args){
-//           
-//        Obra obra = new Obra("1","tiago","melo","10","abc");
-//        Obra obra2 = new Obra("2","Lucas","Azevedo","10","abcde");
+
+    public void selecionarObra(String nomeObra) {
+
+        SAXBuilder builder = new SAXBuilder();
+        File xmlObra = new File("obraXml.xml");
+
+        try {
+            Document doc = (Document) builder.build(xmlObra);
+            Element rootNode = (Element) doc.getRootElement();
+
+            List obras = rootNode.getChildren();
+            Iterator i = obras.iterator();
+
+            while (i.hasNext()) {
+
+                Element obra = (Element) i.next();
+                String nomeObraTemp = obra.getChildText("nome");
+                List<String> elements = new ArrayList<String>();
+
+                if (nomeObraTemp.equals(nomeObra)) {
+
+                    String nome = obra.getChildText("nome");
+                    String autor = obra.getChildText("autor");
+                    String nota = obra.getChildText("nota");
+                    String preco = obra.getChildText("preco");
+                    String editora = obra.getChildText("editora");
+                    String sinopse = obra.getChildText("sinopse");
+
+                    elements.add(nome);
+                    elements.add(autor);
+                    elements.add(nota);
+                    elements.add(preco);
+                    elements.add(editora);
+                    elements.add(sinopse);
+                }
+                for (String element : elements) {
+
+                    System.out.println(element);
+                }
+            }
+
+        } catch (JDOMException ex) {
+            Logger.getLogger(Obra.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Obra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void deletarObra(String nomeObra) {  // Refazer para remover a obra do xml
+
+        SAXBuilder builder = new SAXBuilder();
+        File xmlObra = new File("obraXml.xml");
+
+        try {
+            Document doc = (Document) builder.build(xmlObra);
+            Element rootNode = (Element) doc.getRootElement();
+            Element subRootNode = rootNode.getChild("obra");
+
+            List obras = rootNode.getChildren();
+            Iterator i = obras.iterator();
+
+            while (i.hasNext()) {
+
+                Element obra = (Element) i.next();
+                String nomeObraTemp = obra.getChildText("nome");
+                List<String> elements = new ArrayList<String>();
+
+                if (nomeObraTemp.equals(nomeObra)) {
+
+                    String nome = obra.getChildText("nome");
+                    String autor = obra.getChildText("autor");
+                    String nota = obra.getChildText("nota");
+                    String preco = obra.getChildText("preco");
+                    String editora = obra.getChildText("editora");
+                    String sinopse = obra.getChildText("sinopse");
+
+                }
+            }
+        } catch (JDOMException ex) {
+            Logger.getLogger(Obra.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Obra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public String visualizarPreco() {
+        
+        return this.preco;
+        
+    }
+
+//    public static void main(String[] args) {
+//
+//        Obra obra = new Obra("tiago", "melo", "10", "abc", "zmshsa", "iassa");
+//        Obra obra2 = new Obra("Lucas", "Azevedo", "10", "abcde", "fghij", "lmnop");
 //        //obra.registraObra();
-//        obra2.registraObra();
+//        //obra2.registraObra();
+//        obra2.deletarObra("tiago");
+//        //obra2.selecionarObra("tiago");
 //    }
 }
-

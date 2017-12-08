@@ -5,14 +5,15 @@
  */
 package br.unirio.pcs.suta.ui;
 
-import br.unirio.pcs.suta.GmailAPI;
-
 /**
  *
  * @author Lucas
  */
 public class MsgErroSistemaTela extends javax.swing.JFrame {
-    
+
+    /**
+     * Creates new form MsgErroLivroTela2
+     */
     public MsgErroSistemaTela() {
         initComponents();
     }
@@ -91,8 +92,6 @@ public class MsgErroSistemaTela extends javax.swing.JFrame {
 
     private void MsgErroSistemaEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MsgErroSistemaEnviarActionPerformed
         // TODO add your handling code here:
-        GmailAPI mail = new GmailAPI();
-        mail.sendMail(MsgErroSistemaTexto.getText(), "sutapcsobra@gmail.com", "Erro em Sistema");
         PrincipalTela enviar = new PrincipalTela();
         this.dispose();
         enviar.setVisible(true);

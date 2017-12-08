@@ -5,8 +5,6 @@
  */
 package br.unirio.pcs.suta.ui;
 
-import br.unirio.pcs.suta.GmailAPI;
-
 /**
  *
  * @author Lucas
@@ -94,8 +92,6 @@ public class MsgErroLivroTela extends javax.swing.JFrame {
 
     private void msgErroLivroEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msgErroLivroEnviarActionPerformed
         // TODO add your handling code here:
-        GmailAPI mail = new GmailAPI();
-        mail.sendMail(msgErroLivroTexto.getText(), "sutapcsobra@gmail.com", "Erro em obra");
         PrincipalTela enviar = new PrincipalTela();
         this.dispose();
         enviar.setVisible(true);

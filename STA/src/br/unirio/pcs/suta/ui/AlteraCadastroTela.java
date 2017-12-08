@@ -5,6 +5,8 @@
  */
 package br.unirio.pcs.suta.ui;
 
+import br.unirio.pcs.suta.Cliente;
+
 /**
  *
  * @author Lucas
@@ -28,35 +30,24 @@ public class AlteraCadastroTela extends javax.swing.JFrame {
     private void initComponents() {
 
         editarCadastroDescrTitulo = new javax.swing.JLabel();
-        editarCadastroFieldLogin = new javax.swing.JTextField();
-        editarCadastroFieldCPF = new javax.swing.JTextField();
-        editarCadastroFieldNome = new javax.swing.JTextField();
         editarCadastroFieldEmail = new javax.swing.JTextField();
         editarCadastroFieldSenha = new javax.swing.JTextField();
         editarCadastroFieldSenhaConfirm = new javax.swing.JTextField();
-        editarCadastroFieldDescrLogin = new javax.swing.JLabel();
         editarCadastroFieldDescrSenha = new javax.swing.JLabel();
-        editarCadastroFieldDescrCPF = new javax.swing.JLabel();
         editarCadastroFieldDescrConfirmSenha = new javax.swing.JLabel();
-        editarCadastroFieldDescrNome = new javax.swing.JLabel();
         editarCadastroFieldDescrEmail = new javax.swing.JLabel();
         editarCadastroVoltar = new javax.swing.JButton();
-        editarCadastroAlterar = new javax.swing.JButton();
+        alterarCadastroSenhaButton = new javax.swing.JButton();
+        alterarCadastroEmailButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         editarCadastroDescrTitulo.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         editarCadastroDescrTitulo.setText("Editar Cadastro");
 
-        editarCadastroFieldDescrLogin.setText("Apelido(Login)");
-
         editarCadastroFieldDescrSenha.setText("Senha");
 
-        editarCadastroFieldDescrCPF.setText("CPF");
-
         editarCadastroFieldDescrConfirmSenha.setText("Confirme a senha");
-
-        editarCadastroFieldDescrNome.setText("Nome Completo");
 
         editarCadastroFieldDescrEmail.setText("Email");
 
@@ -67,10 +58,19 @@ public class AlteraCadastroTela extends javax.swing.JFrame {
             }
         });
 
-        editarCadastroAlterar.setText("Fazer Alterações");
-        editarCadastroAlterar.addActionListener(new java.awt.event.ActionListener() {
+        alterarCadastroSenhaButton.setText("Atualizar senha");
+        alterarCadastroSenhaButton.setToolTipText("");
+        alterarCadastroSenhaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoEditarCadastroAlterarActionPerformed(evt);
+                alterarCadastroSenhaButtonActionPerformed(evt);
+            }
+        });
+
+        alterarCadastroEmailButton.setText("Atualizar Email");
+        alterarCadastroEmailButton.setToolTipText("");
+        alterarCadastroEmailButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarCadastroEmailButtonActionPerformed(evt);
             }
         });
 
@@ -78,78 +78,64 @@ public class AlteraCadastroTela extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(317, Short.MAX_VALUE)
+                .addComponent(editarCadastroDescrTitulo)
+                .addGap(306, 306, 306))
             .addGroup(layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(editarCadastroFieldDescrLogin)
-                        .addComponent(editarCadastroFieldDescrCPF)
-                        .addComponent(editarCadastroFieldDescrNome)
-                        .addComponent(editarCadastroFieldDescrEmail)
-                        .addComponent(editarCadastroFieldCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                        .addComponent(editarCadastroFieldEmail)
-                        .addComponent(editarCadastroFieldLogin))
-                    .addComponent(editarCadastroFieldNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarCadastroVoltar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(editarCadastroFieldDescrSenha)
-                        .addComponent(editarCadastroFieldDescrConfirmSenha)
-                        .addComponent(editarCadastroFieldSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                        .addComponent(editarCadastroFieldSenhaConfirm))
-                    .addComponent(editarCadastroAlterar, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(111, 111, 111))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(338, Short.MAX_VALUE)
-                .addComponent(editarCadastroDescrTitulo)
-                .addGap(306, 306, 306))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editarCadastroFieldDescrEmail)
+                            .addComponent(editarCadastroFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(alterarCadastroEmailButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(editarCadastroFieldDescrSenha)
+                            .addComponent(editarCadastroFieldDescrConfirmSenha)
+                            .addComponent(editarCadastroFieldSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                            .addComponent(editarCadastroFieldSenhaConfirm))
+                        .addGap(113, 113, 113))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(editarCadastroVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(alterarCadastroSenhaButton)
+                        .addGap(162, 162, 162))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(editarCadastroDescrTitulo)
-                .addGap(53, 53, 53)
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editarCadastroFieldDescrLogin)
-                    .addComponent(editarCadastroFieldDescrSenha))
+                    .addComponent(editarCadastroFieldDescrSenha)
+                    .addComponent(editarCadastroFieldDescrEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editarCadastroFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarCadastroFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editarCadastroFieldDescrCPF)
-                    .addComponent(editarCadastroFieldDescrConfirmSenha))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editarCadastroFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarCadastroFieldSenhaConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addComponent(editarCadastroFieldDescrNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editarCadastroFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(editarCadastroFieldDescrEmail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editarCadastroFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editarCadastroVoltar)
-                    .addComponent(editarCadastroAlterar))
-                .addGap(33, 33, 33))
+                    .addComponent(editarCadastroFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editarCadastroFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(alterarCadastroEmailButton)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(editarCadastroFieldDescrConfirmSenha)
+                        .addGap(17, 17, 17)
+                        .addComponent(editarCadastroFieldSenhaConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(alterarCadastroSenhaButton)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 77, Short.MAX_VALUE)
+                        .addComponent(editarCadastroVoltar)
+                        .addGap(26, 26, 26))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botaoEditarCadastroAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarCadastroAlterarActionPerformed
-        // TODO add your handling code here:
-        PrincipalTela voltar = new PrincipalTela();
-        this.dispose();
-        voltar.setVisible(true);
-    }//GEN-LAST:event_botaoEditarCadastroAlterarActionPerformed
 
     private void botaoEditarCadastroVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarCadastroVoltarActionPerformed
         // TODO add your handling code here:
@@ -157,6 +143,20 @@ public class AlteraCadastroTela extends javax.swing.JFrame {
         this.dispose();
         editar.setVisible(true);
     }//GEN-LAST:event_botaoEditarCadastroVoltarActionPerformed
+
+    private void alterarCadastroSenhaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarCadastroSenhaButtonActionPerformed
+        Cliente cliente = new Cliente();
+        String senha = editarCadastroFieldEmail.getText();
+        String senhaTmp = editarCadastroFieldSenhaConfirm.getText();
+        cliente.atualizarCadastroSenha(senha,senhaTmp);
+    }//GEN-LAST:event_alterarCadastroSenhaButtonActionPerformed
+
+    private void alterarCadastroEmailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarCadastroEmailButtonActionPerformed
+        Cliente cliente = new Cliente();
+        String email = editarCadastroFieldEmail.getText();
+        cliente.atualizarCadastroEmail(email);
+        
+    }//GEN-LAST:event_alterarCadastroEmailButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,18 +209,13 @@ public class AlteraCadastroTela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton editarCadastroAlterar;
+    private javax.swing.JButton alterarCadastroEmailButton;
+    private javax.swing.JButton alterarCadastroSenhaButton;
     private javax.swing.JLabel editarCadastroDescrTitulo;
-    private javax.swing.JTextField editarCadastroFieldCPF;
-    private javax.swing.JLabel editarCadastroFieldDescrCPF;
     private javax.swing.JLabel editarCadastroFieldDescrConfirmSenha;
     private javax.swing.JLabel editarCadastroFieldDescrEmail;
-    private javax.swing.JLabel editarCadastroFieldDescrLogin;
-    private javax.swing.JLabel editarCadastroFieldDescrNome;
     private javax.swing.JLabel editarCadastroFieldDescrSenha;
     private javax.swing.JTextField editarCadastroFieldEmail;
-    private javax.swing.JTextField editarCadastroFieldLogin;
-    private javax.swing.JTextField editarCadastroFieldNome;
     private javax.swing.JTextField editarCadastroFieldSenha;
     private javax.swing.JTextField editarCadastroFieldSenhaConfirm;
     private javax.swing.JButton editarCadastroVoltar;
